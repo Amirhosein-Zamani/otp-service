@@ -8,7 +8,7 @@ type ConfigSchema = {
     REDIS_PORT: number;
     OTP_TTL_SECONDS: number;
     OTP_COOLDOWN_SECONDS: number;
-    OTP_MAX_PER_WINDOW: number;
+    OTP_MAX_PER_WINDOW: number; 
     OTP_WINDOW_SECONDS: number;
     USE_MONGO: boolean;
 };
