@@ -1,5 +1,5 @@
-import type { IOTPRepository } from '../interfaces/IOTPRepository.js';
-import { OTP } from '../../domain/entities/OTP.js';
+import type { IOTPRepository } from '../interfaces/otp-repository.interface.js';
+import { OTP } from '../../domain/entities/otp.entity.js';
 import config from '../../config/config.service.js';
 
 export class OTPService {

@@ -1,5 +1,5 @@
-import type { IOTPRepository } from "../../application/interfaces/IOTPRepository.js";
-import { OTP } from "../../domain/entities/OTP.js";
+import type { IOTPRepository } from "../../application/interfaces/otp-repository.interface.js";
+import { OTP } from "../../domain/entities/otp.entity.js";
 import { getRedisClient } from "../db/redis.client.js";
 
 export class RedisOTPRepository implements IOTPRepository {
