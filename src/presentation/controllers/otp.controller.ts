@@ -1,13 +1,14 @@
 import type { Request, Response } from 'express';
-import { asyncHandler } from '../middleware/async-handler.middleware.js';
 import { includeIf } from '../helpers/include-if.helper.js';
 import { OTPService } from '../../application/services/otp.service.js';
 import { ApiResponse } from '../helpers/api-response.js';
+import { injectable, inject } from 'tsyringe';
 
+@injectable()
 export class OTPController {
-    constructor(private readonly service: OTPService) { }
+    constructor(@inject(OTPService) private readonly service: OTPService) { }
 
-    sendOTP = asyncHandler(async (req: Request, res: Response) => {
+    sendOTP = async (req: Request, res: Response) => {
         const { phone } = req.body;
 
         if (!phone) {
@@ -22,10 +23,10 @@ export class OTPController {
                 ...includeIf(isDev, { code }),
             }),
         );
-    });
+    };
 
-    verifyOTP = asyncHandler(async (req: Request, res: Response) => {
-        const { phone, code } = req.body();
+    verifyOTP = async (req: Request, res: Response) => {
+        const { phone, code } = req.body;
 
         if (!phone || !code) {
             return res.status(400).json(ApiResponse.error('Phone and code are required'));
@@ -38,6 +39,5 @@ export class OTPController {
         }
 
         return res.status(200).json(ApiResponse.success('OTP verified successfully'));
-    });
+    };
 }
-

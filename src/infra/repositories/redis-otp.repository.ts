@@ -1,7 +1,9 @@
+import { injectable } from 'tsyringe';
 import type { IOTPRepository } from "../../application/interfaces/otp-repository.interface.js";
 import { OTP } from "../../domain/entities/otp.entity.js";
 import { getRedisClient } from "../db/redis.client.js";
 
+@injectable()
 export class RedisOTPRepository implements IOTPRepository {
     private redis = getRedisClient();
 

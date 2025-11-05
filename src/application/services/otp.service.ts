@@ -1,20 +1,23 @@
+import { inject, injectable } from 'tsyringe';
 import type { IOTPRepository } from '../interfaces/otp-repository.interface.js';
 import { OTP } from '../../domain/entities/otp.entity.js';
 import config from '../../config/config.service.js';
 
+@injectable()
 export class OTPService {
 
-    constructor(private readonly repository: IOTPRepository) { }
+    constructor(
+        @inject('IOTPRepository')
+        private readonly repository: IOTPRepository
+    ) { }
 
     async sendOTP(phone: string): Promise<string> {
         const code = Math.floor(100000 + Math.random() * 900000).toString();
-
         const ttl = config.OTP_TTL_SECONDS;
         const expiresAt = new Date(Date.now() + ttl * 1000);
         const otp = new OTP(phone, code, expiresAt);
 
         await this.repository.saveOTP(otp, ttl);
-
         return code;
     }
 
