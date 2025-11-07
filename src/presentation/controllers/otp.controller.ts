@@ -26,7 +26,7 @@ export class OTPController {
         );
     };
 
-    verifyOTP = async (req: Request, res: Response, next: unknown) => {
+    verifyOTP = async (req: Request, res: Response) => {
         const { phone, code } = req.body;
 
         if (!phone || !code) {
