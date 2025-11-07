@@ -1,18 +1,15 @@
-import { container } from 'tsyringe';
-import { OTPService } from '../application/services/otp.service.js';
-import { RedisOTPRepository } from '../infra/repositories/redis-otp.repository.js';
-import { getRedisClient } from '../infra/db/redis.client.js';
+import "reflect-metadata";
+import { container } from "tsyringe";
+import { IOTPRepository } from "../application/interfaces/otp-repository.interface.js";
+import { RedisOTPRepository } from "../infra/repositories/redis-otp.repository.js";
+import { OTPService } from "../application/services/otp.service.js";
+import { OTPController } from "../presentation/controllers/otp.controller.js";
 
-container.register('RedisClient', {
-    useValue: getRedisClient(),
+container.register<IOTPRepository>("IOTPRepository", {
+  useClass: RedisOTPRepository,
 });
 
-container.register('OtpRepository', {
-    useClass: RedisOTPRepository,
-});
-
-container.register('OtpService', {
-    useClass: OTPService,
-});
+container.registerSingleton(OTPService, OTPService);
+container.registerSingleton(OTPController, OTPController);
 
 export { container };

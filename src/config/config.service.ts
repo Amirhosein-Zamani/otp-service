@@ -56,7 +56,7 @@ class ConfigService {
         return Number(this.env.OTP_MAX_PER_WINDOW ?? 3);
     }
     get OTP_WINDOW_SECONDS(): number {
-        return Number(this.env.OTP_WINDOW_SECONDS ?? 3600); // 1 hour
+        return Number(this.env.OTP_WINDOW_SECONDS ?? 3600); 
     }
     get USE_MONGO(): boolean {
         return (this.env.USE_MONGO ?? 'false') === 'true';

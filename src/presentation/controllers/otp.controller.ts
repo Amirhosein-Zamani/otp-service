@@ -2,11 +2,12 @@ import type { Request, Response } from 'express';
 import { includeIf } from '../helpers/include-if.helper.js';
 import { OTPService } from '../../application/services/otp.service.js';
 import { ApiResponse } from '../helpers/api-response.js';
-import { injectable, inject } from 'tsyringe';
+import { injectable } from "tsyringe";
+
 
 @injectable()
 export class OTPController {
-    constructor(@inject(OTPService) private readonly service: OTPService) { }
+    constructor(private readonly service: OTPService) { }
 
     sendOTP = async (req: Request, res: Response) => {
         const { phone } = req.body;
@@ -25,7 +26,7 @@ export class OTPController {
         );
     };
 
-    verifyOTP = async (req: Request, res: Response) => {
+    verifyOTP = async (req: Request, res: Response, next: unknown) => {
         const { phone, code } = req.body;
 
         if (!phone || !code) {

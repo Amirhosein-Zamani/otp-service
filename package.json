@@ -1,15 +1,16 @@
 {
   "name": "otp-service",
   "version": "1.0.0",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "dist/index.js",
+ "scripts": {
+  "dev": "nodemon --watch src --exec ts-node --transpile-only src/index.ts",
+  "build": "tsc",
+  "start": "node dist/index.js"
+},
   "keywords": [],
   "author": "Amirhossein_Zamani",
   "license": "ISC",
-  "description": "",
+  "description": "OTP Service with Clean Architecture and TypeScript",
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
@@ -19,7 +20,7 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.5",
-    "@types/node": "^24.9.2",
+    "@types/node": "^20.11.30",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"

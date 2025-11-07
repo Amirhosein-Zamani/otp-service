@@ -12,7 +12,6 @@ export async function otpRateLimiter(req: Request, res: Response, next: NextFunc
     const cooldownSeconds = config.OTP_COOLDOWN_SECONDS;
     const windowSeconds = config.OTP_WINDOW_SECONDS;
     const maxPerWindow = config.OTP_MAX_PER_WINDOW;
-
     const cooldownKey = `otp:cooldown:${phone}`;
     const windowKey = `otp:count:${phone}`;
 

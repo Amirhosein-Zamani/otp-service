@@ -1,7 +1,7 @@
-import { inject, injectable } from 'tsyringe';
 import type { IOTPRepository } from '../interfaces/otp-repository.interface.js';
 import { OTP } from '../../domain/entities/otp.entity.js';
 import config from '../../config/config.service.js';
+import { inject, injectable } from 'tsyringe';
 
 @injectable()
 export class OTPService {
