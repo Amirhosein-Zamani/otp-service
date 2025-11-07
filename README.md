@@ -58,12 +58,17 @@ It is **Docker-ready** and designed for scalability, testability, and maintainab
 
 ## 🚀 Run with Docker
 
-run:
-  "### Build and Start": "docker-compose up --build"
-  "### Stop and Remove": "docker-compose down"
+run:  
+ "### Build and Start": "docker-compose up --build"  
+ "### Stop and Remove": "docker-compose down"
 
 ---
 
+## 🖋️ Author  
+
+[Amirhossein Zamani](https://github.com/Amirhosein-Zamani)
+
+---
 ## 🖋️ Author  
 
 [Amirhossein Zamani](https://github.com/Amirhosein-Zamani)
