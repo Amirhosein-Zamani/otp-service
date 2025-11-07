@@ -63,6 +63,10 @@ run:
   "### Build and Start": "docker-compose up --build"
   "### Stop and Remove": "docker-compose down"
 
-🖋️ Author
+---
 
-Amirhossein Zamani
+## 🖋️ Author  
+
+[Amirhossein Zamani](https://github.com/Amirhosein-Zamani)
+
+---
