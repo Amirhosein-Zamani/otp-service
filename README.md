@@ -1,6 +1,7 @@
 # 🔐 OTP Service (Node.js + Redis + Clean Architecture)
 
-This project is a **modular OTP (One-Time Password) microservice** built with **Node.js**, **Express**, **TypeScript**, **Redis**, and **Clean Architecture** principles. It is **Docker-ready** and designed for scalability, testability, and maintainability.
+This project is a **modular OTP (One-Time Password) microservice** built with **Node.js**, **Express**, **TypeScript**, **Redis**, and **Clean Architecture** principles.  
+It is **Docker-ready** and designed for scalability, testability, and maintainability.
 
 ---
 
@@ -11,8 +12,6 @@ This project is a **modular OTP (One-Time Password) microservice** built with **
 - **Infrastructure Layer:** Redis repository (`redis-otp.repository.ts`), Mongo/Redis clients, and utility functions.  
 - **Presentation Layer:** Express routes (`otp.routes.ts`), controllers (`otp.controller.ts`), middleware, and API helpers.  
 - **Config Layer:** Dependency injection (`dependency.injection.ts`) and environment-based configuration (`config.service.ts`).
-
-**Folder structure:**
 
 ---
 
@@ -57,16 +56,13 @@ This project is a **modular OTP (One-Time Password) microservice** built with **
 
 ---
 
-  ## 🚀 Run with Docker
+## 🚀 Run with Docker
 
 ```yaml
 run:
   "### Build and Start": "docker-compose up --build"
   "### Stop and Remove": "docker-compose down"
 
----
-## 🖋️ Author
+🖋️ Author
 
-[Amirhossein Zamani](https://github.com/Amirhosein-Zamani)
-
----
+Amirhossein Zamani
