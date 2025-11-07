@@ -58,7 +58,6 @@ It is **Docker-ready** and designed for scalability, testability, and maintainab
 
 ## 🚀 Run with Docker
 
-```yaml
 run:
   "### Build and Start": "docker-compose up --build"
   "### Stop and Remove": "docker-compose down"
