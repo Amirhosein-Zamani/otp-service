@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7
+    container_name: redis-local
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+
+  otp-service:
+    build: .
+    container_name: otp-service
+    depends_on:
+      - redis
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.docker
+    restart: unless-stopped
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: ["npm", "start"]
+
+volumes:
+  redis_data:
